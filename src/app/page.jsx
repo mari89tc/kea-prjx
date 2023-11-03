@@ -1,4 +1,4 @@
-// export const dynamic = "force-dynamic"; //ssr
+export const dynamic = "force-dynamic"; //ssr
 // export const dynamic = "force-static"; //ssg
 
 export const metadata = {
