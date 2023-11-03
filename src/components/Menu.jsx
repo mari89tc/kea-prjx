@@ -1,10 +1,9 @@
 import Link from "next/link";
-
 export default function Menu() {
   return (
-    <nav className=" flex gap-4">
+    <nav>
       <Link href="/" prefetch={false}>
-        Home
+        Forside
       </Link>
       <Link href="/henry" prefetch={false}>
         Henry

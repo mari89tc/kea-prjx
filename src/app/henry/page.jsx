@@ -1,30 +1,32 @@
 import Image from "next/image";
-
 export async function generateMetadata() {
   const res = await fetch("https://nice-dogs.vercel.app/api/dogs?slug=henry");
   const data = await res.json();
   return {
     title: data.name,
-    description: `Loves ${data.favouriteColor}`,
+    description: `Loves${data.favouriteColor}`,
   };
 }
-
 export default async function Henry() {
   const res = await fetch("https://nice-dogs.vercel.app/api/dogs?slug=henry");
   const data = await res.json();
-  const { name, favouriteColor, age, image } = data;
-  console.log(image);
+  const { name, favouriteColor, age, image, width, height } = data;
+  console.log(data);
   return (
     <main>
       <h1>{name}</h1>
+      <p>{favouriteColor}</p>
+      <p>{age}</p>
       <Image
         src={image.url}
+        alt="A cute dog"
         width={image.width}
         height={image.height}
-        alt={name}
-        priority
-        sizes="(max-width: 500px) 100vw, 500px"
-      />
+        priority={true}
+        sizes="(max-width: 768px) 100vw,
+         (max-width: 1200px) 50vw,
+         400px"
+      ></Image>
     </main>
   );
 }
