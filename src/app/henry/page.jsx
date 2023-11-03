@@ -13,11 +13,12 @@ export default async function Henry() {
   const { name, favouriteColor, age, image, width, height } = data;
   console.log(data);
   return (
-    <main>
+    <main className="m-10">
       <h1>{name}</h1>
       <p>{favouriteColor}</p>
       <p>{age}</p>
       <Image
+        className="pt-6"
         src={image.url}
         alt="A cute dog"
         width={image.width}
